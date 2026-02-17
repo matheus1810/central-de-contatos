@@ -9,3 +9,42 @@
  * Author URI: https://github.com/matheus1810/
 
  */
+
+if (! defined("ABSPATH")) {
+    exit;
+}
+
+if (! class_exists("Central_De_Contatos")) {
+    class Central_De_Contatos
+    {
+        public function __construct()
+        {
+            $this->Define_Constants();
+        }
+
+        public function Define_Constants()
+        {
+            define("CENTRAL_DE_CONTATOS_DIR_PATH", plugin_dir_path(__FILE__));
+            define("CENTRAL_DE_CONTATOS_DIR_URL", plugin_dir_url(__FILE__));
+            define("CENTRAL_DE_CONTATOS_VERSION", '1.0.0');
+        }
+
+        public static function activation()
+        {
+            update_option("rewrite_rules", 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa');
+        }
+        public static function deactivation()
+        {
+            flush_rewrite_rules();
+        }
+        public static function uninstall() {}
+    }
+}
+
+
+if (class_exists("Central_De_Contatos")) {
+    $central_de_contatos = new Central_De_Contatos;
+    register_activation_hook(__FILE__, [$central_de_contatos, "activation"]);
+    register_deactivation_hook(__FILE__, [$central_de_contatos, "deactivation"]);
+    register_uninstall_hook(__FILE__, [$central_de_contatos, "uninstall"]);
+}
