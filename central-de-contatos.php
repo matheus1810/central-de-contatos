@@ -7,7 +7,6 @@
  * Version: 1.0.0
  * Author: Matheus de Souza dos Santos
  * Author URI: https://github.com/matheus1810/
-
  */
 
 if (! defined("ABSPATH")) {
@@ -20,6 +19,8 @@ if (! class_exists("Central_De_Contatos")) {
         public function __construct()
         {
             $this->Define_Constants();
+
+            add_action('admin_menu', [$this, 'add_menu']);
         }
 
         public function Define_Constants()
@@ -29,9 +30,29 @@ if (! class_exists("Central_De_Contatos")) {
             define("CENTRAL_DE_CONTATOS_VERSION", '1.0.0');
         }
 
+
+        public function add_menu()
+        {
+            add_menu_page(
+                "Central de Contatos do Site",
+                "Central de Contatos",
+                "manage_options",
+                'central_de_contatos_admin',
+                [$this, 'central_de_contatos_admin_page'],
+                'dashicons-megaphone',
+                10
+            );
+        }
+
+        public function central_de_contatos_admin_page()
+        {
+            echo 'page';
+        }
+
+
         public static function activation()
         {
-            update_option("rewrite_rules", 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa');
+            update_option("rewrite_rules", '');
         }
         public static function deactivation()
         {
