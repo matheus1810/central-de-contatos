@@ -22,7 +22,6 @@ if (! class_exists("Central_De_Contatos")) {
 
             add_action('admin_menu', [$this, 'add_menu']);
         }
-
         public function Define_Constants()
         {
             define("CENTRAL_DE_CONTATOS_DIR_PATH", plugin_dir_path(__FILE__));
@@ -46,7 +45,7 @@ if (! class_exists("Central_De_Contatos")) {
 
         public function central_de_contatos_admin_page()
         {
-            echo 'page';
+            require_once(CENTRAL_DE_CONTATOS_DIR_PATH . '/views/central-de-contatos-page.php');
         }
 
 
