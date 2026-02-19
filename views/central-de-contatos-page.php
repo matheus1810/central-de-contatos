@@ -1,14 +1,31 @@
-<h1>Central de contatos Página</h1>
+<?php
+
+if (isset($_GET['settings-updated'])) {
+    add_settings_error(
+        'contatos_options', 
+        'mensagem', 
+        'Salvo com sucesso!', 
+        'success'
+    );
+}
+settings_errors('contatos_options');
+
+?>
 
 
-<form>
 
-    <label for="forma_de_contato">Adicione o Número de contato:</label>
-    <input
-        name="forma_de_contato"
-        id="forma_de_contato"
-        type="text">
+<div class="wrap">
 
-        <button type="submit">Enviar</button>
+    <h1><?= esc_html(get_admin_page_title()); ?></h1>
 
-</form>
+
+    <form action="options.php" method="post">
+        <?php
+        settings_fields('contatos_group');
+        do_settings_sections('central_de_contatos_page');
+        submit_button('Salvar Opções');
+        ?>
+
+    </form>
+</div>
+

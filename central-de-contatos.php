@@ -18,11 +18,15 @@ if (! class_exists("Central_De_Contatos")) {
     {
         public function __construct()
         {
-            $this->Define_Constants();
+            $this->define_constants();
 
             add_action('admin_menu', [$this, 'add_menu']);
+
+            require_once(CENTRAL_DE_CONTATOS_DIR_PATH . "class.central-de-contatos-settings.php");
+            $central_de_contatos_settings = new Central_De_Contatos_Settings();
         }
-        public function Define_Constants()
+
+        public function define_constants()
         {
             define("CENTRAL_DE_CONTATOS_DIR_PATH", plugin_dir_path(__FILE__));
             define("CENTRAL_DE_CONTATOS_DIR_URL", plugin_dir_url(__FILE__));
