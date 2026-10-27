@@ -23,7 +23,10 @@ if (! class_exists("Central_De_Contatos")) {
             add_action('admin_menu', [$this, 'add_menu']);
 
             require_once(CENTRAL_DE_CONTATOS_DIR_PATH . "class.central-de-contatos-settings.php");
-            $central_de_contatos_settings = new Central_De_Contatos_Settings();
+            new Central_De_Contatos_Settings();
+
+            require_once CENTRAL_DE_CONTATOS_DIR_PATH . 'class.central-de-contatos-cpt.php';
+            new Central_De_Contatos_CPT();
         }
 
         public function define_constants()

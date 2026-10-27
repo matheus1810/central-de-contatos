@@ -17,11 +17,11 @@ if (! class_exists("Central_De_Contatos_Settings")) {
         public function admin_init()
         {
 
-            register_setting('contatos_group', 
+           register_setting(
+            'contatos_group',
             'contatos_options',
-            ['sanitize_callback' => [$this,'sanitize_options']
-            ]
-            );
+            array( 'sanitize_callback' => array( $this, 'sanitize_options' ) )
+             );
 
             add_settings_section(
                 'option_settings_section',
