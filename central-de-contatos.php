@@ -55,7 +55,7 @@ if (! class_exists("Central_De_Contatos")) {
 
         public static function activation()
         {
-            update_option("rewrite_rules", '');
+            flush_rewrite_rules();
         }
         public static function deactivation()
         {
@@ -68,7 +68,7 @@ if (! class_exists("Central_De_Contatos")) {
 
 if (class_exists("Central_De_Contatos")) {
     $central_de_contatos = new Central_De_Contatos;
-    register_activation_hook(__FILE__, [$central_de_contatos, "activation"]);
-    register_deactivation_hook(__FILE__, [$central_de_contatos, "deactivation"]);
-    register_uninstall_hook(__FILE__, [$central_de_contatos, "uninstall"]);
+    register_activation_hook(__FILE__, ['Central_De_Contatos', "activation"]);
+    register_deactivation_hook(__FILE__, ['Central_De_Contatos', "deactivation"]);
+    register_uninstall_hook(__FILE__, ['Central_De_Contatos', "uninstall"]);
 }

@@ -17,7 +17,11 @@ if (! class_exists("Central_De_Contatos_Settings")) {
         public function admin_init()
         {
 
-            register_setting('contatos_group', 'contatos_options');
+            register_setting('contatos_group', 
+            'contatos_options',
+            ['sanitize_callback' => [$this,'sanitize_options']
+            ]
+            );
 
             add_settings_section(
                 'option_settings_section',
@@ -35,6 +39,12 @@ if (! class_exists("Central_De_Contatos_Settings")) {
             );
         }
 
+        public function sanitize_options( $input ) {
+         $output = array();
+         $output['contato_field_phone'] = sanitize_text_field( $input['contato_field_phone'] ?? '' );
+          return $output;
+        }
+
         public function central_de_contato_input()
         {
             $value = isset(self::$options['contato_field_phone'])
@@ -48,7 +58,7 @@ if (! class_exists("Central_De_Contatos_Settings")) {
                 type="text"
                 id="contato_field_phone"
                 name="contatos_options[contato_field_phone]"
-                value="<?php echo esc_attr($value); ?>"
+                value="<?php echo esc_attr($value); ?>" >
                 <?php
             }
         }
