@@ -27,6 +27,9 @@ if (! class_exists("Central_De_Contatos")) {
 
             require_once CENTRAL_DE_CONTATOS_DIR_PATH . 'class.central-de-contatos-cpt.php';
             new Central_De_Contatos_CPT();
+
+            require_once CENTRAL_DE_CONTATOS_DIR_PATH . 'class.central-de-contatos-shortcode.php';
+            new CC_Shortcode;
         }
 
         public function define_constants()
