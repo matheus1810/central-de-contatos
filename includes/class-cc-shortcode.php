@@ -10,11 +10,14 @@ if( ! class_exists('CC_Shortcode')){
         }
 
         function cc_shortcode_render($attr){
+
+          
+
             $args = [
                 'post_type'      => 'cc_contato',
                 'posts_per_page' => -1,
                 'orderby'        => 'title',
-                'order'          => 'ASC'
+                'order'          => 'ASC',
             ];
 
             $posts = get_posts($args);

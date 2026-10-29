@@ -19,7 +19,7 @@ define("CC_VERSION", '1.1.1');
 require_once(CC_PATH . 'includes/class-cc-plugin.php');
 
 if (class_exists("CC_Plugin")) {
-    new CC_Plugin();
+    $cc_plugin = new CC_Plugin();
     register_activation_hook(__FILE__, ['CC_Plugin', "activation"]);
     register_deactivation_hook(__FILE__, ['CC_Plugin', "deactivation"]);
     register_uninstall_hook(__FILE__, ['CC_Plugin', "uninstall"]);

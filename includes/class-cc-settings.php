@@ -8,7 +8,6 @@ if (! class_exists("CC_Settings")) {
 
         public static $options;
 
-
         public function __construct()
 
         {
@@ -42,9 +41,9 @@ if (! class_exists("CC_Settings")) {
         }
 
         public function sanitize_options( $input ) {
-         $output = array();
-         $output['contato_field_phone'] = sanitize_text_field( $input['contato_field_phone'] ?? '' );
-          return $output;
+            $output = array();
+            $output['contato_field_phone'] = sanitize_text_field( $input['contato_field_phone'] ?? '' );
+            return $output;
         }
 
         public function central_de_contato_input()
@@ -54,8 +53,6 @@ if (! class_exists("CC_Settings")) {
                 : '';
 
 ?>
-
-
             <input
                 type="text"
                 id="contato_field_phone"
