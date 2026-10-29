@@ -9,72 +9,18 @@
  * Author URI: https://github.com/matheus1810/
  */
 
-if (! defined("ABSPATH")) {
-    exit;
-}
+defined( 'ABSPATH' ) || exit;
 
-if (! class_exists("Central_De_Contatos")) {
-    class Central_De_Contatos
-    {
-        public function __construct()
-        {
-            $this->define_constants();
+        
+define("CC_PATH", plugin_dir_path(__FILE__));
+define("CC_URL", plugin_dir_url(__FILE__));
+define("CC_VERSION", '1.1.1');
 
-            add_action('admin_menu', [$this, 'add_menu']);
+require_once(CC_PATH . 'includes/class-cc-plugin.php');
 
-            require_once(CENTRAL_DE_CONTATOS_DIR_PATH . "class.central-de-contatos-settings.php");
-            new Central_De_Contatos_Settings();
-
-            require_once CENTRAL_DE_CONTATOS_DIR_PATH . 'class.central-de-contatos-cpt.php';
-            new Central_De_Contatos_CPT();
-
-            require_once CENTRAL_DE_CONTATOS_DIR_PATH . 'class.central-de-contatos-shortcode.php';
-            new CC_Shortcode;
-        }
-
-        public function define_constants()
-        {
-            define("CENTRAL_DE_CONTATOS_DIR_PATH", plugin_dir_path(__FILE__));
-            define("CENTRAL_DE_CONTATOS_DIR_URL", plugin_dir_url(__FILE__));
-            define("CENTRAL_DE_CONTATOS_VERSION", '1.1.1');
-        }
-
-
-        public function add_menu()
-        {
-            add_menu_page(
-                "Central de Contatos do Site",
-                "Central de Contatos",
-                "manage_options",
-                'central_de_contatos_admin',
-                [$this, 'central_de_contatos_admin_page'],
-                'dashicons-megaphone',
-                10
-            );
-        }
-
-        public function central_de_contatos_admin_page()
-        {
-            require_once(CENTRAL_DE_CONTATOS_DIR_PATH . '/views/central-de-contatos-page.php');
-        }
-
-
-        public static function activation()
-        {
-            flush_rewrite_rules();
-        }
-        public static function deactivation()
-        {
-            flush_rewrite_rules();
-        }
-        public static function uninstall() {}
-    }
-}
-
-
-if (class_exists("Central_De_Contatos")) {
-    $central_de_contatos = new Central_De_Contatos;
-    register_activation_hook(__FILE__, ['Central_De_Contatos', "activation"]);
-    register_deactivation_hook(__FILE__, ['Central_De_Contatos', "deactivation"]);
-    register_uninstall_hook(__FILE__, ['Central_De_Contatos', "uninstall"]);
+if (class_exists("CC_Plugin")) {
+    new CC_Plugin();
+    register_activation_hook(__FILE__, ['CC_Plugin', "activation"]);
+    register_deactivation_hook(__FILE__, ['CC_Plugin', "deactivation"]);
+    register_uninstall_hook(__FILE__, ['CC_Plugin', "uninstall"]);
 }

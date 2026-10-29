@@ -1,8 +1,6 @@
 <?php
 
-if( ! defined("ABSPATH")){
-    return;
-}
+defined( 'ABSPATH' ) || exit;
 
 if( ! class_exists('CC_Shortcode')){
 
@@ -54,7 +52,6 @@ if( ! class_exists('CC_Shortcode')){
 
              return ob_get_clean();
 
-        
         }
 
     }

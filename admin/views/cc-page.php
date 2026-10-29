@@ -1,5 +1,7 @@
 <?php
 
+defined( 'ABSPATH' ) || exit;
+
 if (isset($_GET['settings-updated'])) {
     add_settings_error(
         'contatos_options', 

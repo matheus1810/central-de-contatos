@@ -1,7 +1,9 @@
 <?php
 
-if (! class_exists("Central_De_Contatos_Settings")) {
-    class Central_De_Contatos_Settings
+defined( 'ABSPATH' ) || exit;
+
+if (! class_exists("CC_Settings")) {
+    class CC_Settings
     {
 
         public static $options;

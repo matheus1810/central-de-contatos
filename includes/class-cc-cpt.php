@@ -1,8 +1,8 @@
 <?php
 defined( 'ABSPATH' ) || exit;
 
-if ( ! class_exists( 'Central_De_Contatos_CPT' ) ) {
-    class Central_De_Contatos_CPT {
+if ( ! class_exists( 'CC_Cpt' ) ) {
+    class CC_Cpt {
 
         public function __construct() {
             add_action( 'init', array( $this, 'register_post_type' ) );
@@ -41,7 +41,7 @@ if ( ! class_exists( 'Central_De_Contatos_CPT' ) ) {
         }
 
         public function render_meta_box( $post ) {
-            require CENTRAL_DE_CONTATOS_DIR_PATH . 'views/central-de-contatos-metabox.php';
+            require CC_PATH . 'admin/views/cc-metabox.php';
         }
 
         public function save_post_cc_contato($post_id,$post){
