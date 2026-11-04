@@ -4,7 +4,7 @@
  * Plugin Name: Central de Contatos
  * Description: Plugin para gerenciamento centralizado de contatos, com organização, busca e integração simplificada.
  * Plugin URI: https://github.com/matheus1810/central-de-contatos
- * Version: 1.1.1
+ * Version: 1.1.0
  * Author: Matheus de Souza dos Santos
  * Author URI: https://github.com/matheus1810/
  * Text Domain: central-de-contatos
@@ -16,7 +16,7 @@ defined( 'ABSPATH' ) || exit;
         
 define("CC_PATH", plugin_dir_path(__FILE__));
 define("CC_URL", plugin_dir_url(__FILE__));
-define("CC_VERSION", '1.1.1');
+define("CC_VERSION", '1.1.0');
 
 require_once(CC_PATH . 'includes/class-cc-plugin.php');
 
