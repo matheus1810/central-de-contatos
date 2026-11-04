@@ -108,6 +108,13 @@ Os arquivos principais ficam organizados em:
 | `includes/class-cc-shortcode.php` | Exibição dos contatos pelo shortcode. |
 | `admin/views/` | Formulários do painel administrativo. |
 
+## Decisões técnicas
+
+- **CPT em vez de tabela própria:** os contatos têm uma estrutura simples, então o CPT permite aproveitar o cadastro no painel, as permissões e as APIs do WordPress sem criar e manter uma tabela adicional.
+- **`public => false`:** os contatos são gerenciados no painel e exibidos pelo shortcode, sem precisar de páginas individuais públicas ou aparecer na busca padrão do site; `show_ui => true` mantém a interface administrativa.
+- **`save_post_cc_contato` em vez de `save_post`:** o hook específico executa a rotina de salvamento apenas para contatos, evitando chamadas ao salvar páginas, posts e outros tipos de conteúdo.
+- **Exclusão de dados apenas no uninstall:** desativar pode ser uma pausa temporária, por isso preserva os cadastros para uma futura reativação; a desinstalação remove os posts, seus metadados e a configuração para não deixar dados do plugin no banco.
+
 ## Desativação e exclusão
 
 Desativar o plugin mantém os contatos e as configurações no banco de dados.
