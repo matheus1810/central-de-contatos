@@ -23,7 +23,7 @@ if( ! class_exists('CC_Shortcode')){
             $posts = get_posts($args);
 
             if(  empty($posts)){
-                return 'está vazio';
+                return esc_html__('está vazio','central-de-contatos');
             }
 
             ob_start();
@@ -41,8 +41,8 @@ if( ! class_exists('CC_Shortcode')){
                 ?>
                     <h2> <?= esc_html($post->post_title) ?></h2>
                     <ul>
-                        <li> <?= esc_html($telefone) ?> </li>
                         <li> <?= esc_html($email) ?> </li>
+                        <li> <?= esc_html($telefone) ?> </li>
                         <li> <?= esc_html($whatsapp) ?> </li>
                         <li> <?= esc_html($empresa) ?> </li>
                     </ul>

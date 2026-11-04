@@ -6,7 +6,7 @@ if (isset($_GET['settings-updated'])) {
     add_settings_error(
         'contatos_options', 
         'mensagem', 
-        'Salvo com sucesso!', 
+        __('Salvo com sucesso!','central-de-contatos'), 
         'success'
     );
 }
@@ -25,7 +25,7 @@ settings_errors('contatos_options');
         <?php
         settings_fields('contatos_group');
         do_settings_sections('central_de_contatos_page');
-        submit_button('Salvar Opções');
+        submit_button(__('Salvar Opções', 'central-de-contatos'));
         ?>
 
     </form>

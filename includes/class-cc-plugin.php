@@ -9,6 +9,7 @@ if (! class_exists("CC_Plugin")) {
         {
 
             add_action('admin_menu', [$this, 'add_menu']);
+            add_action('init', [$this, 'load_textdomain']);
 
             require_once(CC_PATH . "includes/class-cc-settings.php");
             new CC_Settings();
@@ -21,11 +22,15 @@ if (! class_exists("CC_Plugin")) {
 
         }
 
+        public function load_textdomain() {
+            load_plugin_textdomain( 'central-de-contatos', false, dirname( plugin_basename( CC_PATH . 'central-de-contatos.php' ) ) . '/languages' );
+        }
+
         public function add_menu()
         {
             add_menu_page(
-                "Central de Contatos do Site",
-                "Central de Contatos",
+                __("Central de Contatos do Site",'central-de-contatos'),
+                __("Central de Contatos",'central-de-contatos'),
                 "manage_options",
                 'central_de_contatos_admin',
                 [$this, 'central_de_contatos_admin_page'],

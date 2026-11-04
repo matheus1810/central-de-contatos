@@ -7,6 +7,8 @@
  * Version: 1.1.1
  * Author: Matheus de Souza dos Santos
  * Author URI: https://github.com/matheus1810/
+ * Text Domain: central-de-contatos
+ * Domain Path: /languages
  */
 
 defined( 'ABSPATH' ) || exit;

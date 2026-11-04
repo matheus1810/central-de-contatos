@@ -18,10 +18,10 @@ if ( ! class_exists( 'CC_Cpt' ) ) {
                 'cc_contato',
                 array(
                     'labels' => array(
-                        'name'          => 'Contatos',
-                        'singular_name' => 'Contato',
-                        'add_new_item'  => 'Adicionar contato',
-                        'edit_item'     => 'Editar contato',
+                        'name'          => __('Contatos', 'central-de-contatos'),
+                        'singular_name' => __('Contato', 'central-de-contatos'),
+                        'add_new_item'  => __('Adicionar contato', 'central-de-contatos'),
+                        'edit_item'     => __('Editar contato', 'central-de-contatos'),
                     ),
                     'public'       => false,
                     'show_ui'      => true,
@@ -35,7 +35,7 @@ if ( ! class_exists( 'CC_Cpt' ) ) {
         public function add_meta_box() {
             add_meta_box(
                 'cc_contato_dados',
-                'Dados do contato',
+                __('Dados do contato', 'central-de-contatos'),
                 array( $this, 'render_meta_box' ),
                 'cc_contato'
             );
