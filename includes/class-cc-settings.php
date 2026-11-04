@@ -33,7 +33,7 @@ if (! class_exists("CC_Settings")) {
 
             add_settings_field(
                 'contato_field_phone',
-                __('Adicione os Contato','central-de-contatos'),
+                __('Número do WhatsApp','central-de-contatos'),
                 [$this, 'central_de_contato_input'],
                 'central_de_contatos_page',
                 'option_settings_section',
