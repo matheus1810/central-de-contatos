@@ -1,8 +1,6 @@
 <?php
 
-if( ! defined("ABSPATH")){
-    return;
-}
+defined( 'ABSPATH' ) || exit;
 
 if( ! class_exists('CC_Blocks')){
     class CC_Blocks{
