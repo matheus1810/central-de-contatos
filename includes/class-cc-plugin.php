@@ -20,6 +20,9 @@ if (! class_exists("CC_Plugin")) {
             require_once CC_PATH . 'includes/class-cc-cpt.php';
             new CC_Cpt();
 
+            require_once CC_PATH . 'includes/class-cc-blocks.php';
+            new CC_Blocks;
+
         }
 
         public function load_textdomain() {
