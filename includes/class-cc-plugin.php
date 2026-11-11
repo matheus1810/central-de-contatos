@@ -14,6 +14,8 @@ if (! class_exists("CC_Plugin")) {
             require_once(CC_PATH . "includes/class-cc-settings.php");
             new CC_Settings();
 
+            require_once CC_PATH . 'includes/class-cc-lista.php';
+
             require_once CC_PATH . 'includes/class-cc-shortcode.php';
             New CC_Shortcode;
 
@@ -22,6 +24,7 @@ if (! class_exists("CC_Plugin")) {
 
             require_once CC_PATH . 'includes/class-cc-blocks.php';
             new CC_Blocks;
+
 
         }
 
