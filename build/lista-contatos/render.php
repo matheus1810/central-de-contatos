@@ -11,5 +11,5 @@
  */
 ?>
 <p <?php echo get_block_wrapper_attributes(); ?>>
-	<?php esc_html_e( 'Lista de Contatos – hello from a dynamic block!', 'central-de-contatos' ); ?>
+	<?php echo CC_Lista::render()?>
 </p>
