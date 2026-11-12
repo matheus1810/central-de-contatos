@@ -20,6 +20,24 @@ return array(
 		'editorScript' => 'file:./index.js',
 		'editorStyle' => 'file:./index.css',
 		'style' => 'file:./style-index.css',
+		'attributes' => array(
+			'quantidade' => array(
+				'type' => 'integer',
+				'default' => 5
+			),
+			'ordenacao' => array(
+				'type' => 'string',
+				'default' => 'title',
+				'enum' => array(
+					'title',
+					'date'
+				)
+			),
+			'mostrar_email' => array(
+				'type' => 'boolean',
+				'default' => true
+			)
+		),
 		'render' => 'file:./render.php'
 	)
 );

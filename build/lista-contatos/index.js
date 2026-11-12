@@ -171,7 +171,7 @@ module.exports = window["wp"]["i18n"];
   \***************************************/
 (module) {
 
-module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"central-de-contatos/lista-contatos","version":"0.1.2","title":"Lista de Contatos","category":"widgets","icon":"id","description":"Liste todos os contatos da sua lista","example":{},"supports":{"html":false},"textdomain":"central-de-contatos","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","render":"file:./render.php"}');
+module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"central-de-contatos/lista-contatos","version":"0.1.2","title":"Lista de Contatos","category":"widgets","icon":"id","description":"Liste todos os contatos da sua lista","example":{},"supports":{"html":false},"textdomain":"central-de-contatos","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","attributes":{"quantidade":{"type":"integer","default":5},"ordenacao":{"type":"string","default":"title","enum":["title","date"]},"mostrar_email":{"type":"boolean","default":true}},"render":"file:./render.php"}');
 
 /***/ }
 
