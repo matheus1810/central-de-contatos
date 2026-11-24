@@ -11,8 +11,6 @@ if( ! class_exists('CC_Shortcode')){
 
         function cc_shortcode_render($atts){
 
-         
-
 
             $atts = shortcode_atts(
                 [   
