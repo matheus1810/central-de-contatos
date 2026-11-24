@@ -10,7 +10,14 @@ import { __ } from '@wordpress/i18n';
  *
  * @see https://developer.wordpress.org/block-editor/reference-guides/packages/packages-block-editor/#useblockprops
  */
-import { useBlockProps } from '@wordpress/block-editor';
+import { useBlockProps, InspectorControls } from '@wordpress/block-editor';
+import {
+	PanelBody,
+	RangeControl,
+	SelectControl,
+	ToggleControl,
+} from '@wordpress/components';
+
 /**
  * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
  * Those files can contain any CSS code that gets applied to the editor.
@@ -27,10 +34,49 @@ import './editor.scss';
  *
  * @return {Element} Element to render.
  */
-export default function Edit() {
+export default function Edit( { attributes, setAttributes } ) {
 	return (
-		<p { ...useBlockProps() }>
-			{ __( 'Lista de Contatos – hello from the editor!', 'central-de-contatos' ) }
-		</p>
+		<>
+			<InspectorControls>
+				<PanelBody
+					title={ __( 'Configurações', 'central-de-contatos' ) }
+				>
+					<RangeControl
+						label={ __( 'Quantidade', 'central-de-contatos' ) }
+						value={ attributes.quantidade }
+						onChange={ ( valor ) =>
+							setAttributes( { quantidade: valor } )
+						}
+						min={ 1 }
+						max={ 50 }
+					/>
+					<SelectControl
+						label={ __( 'Ordenação', 'central-de-contatos' ) }
+						value={ attributes.ordenacao }
+						options={ [
+							{
+								label: __( 'Titulo', 'central-de-contatos' ),
+								value: 'title',
+							},
+							{ label: 'date', value: 'date' },
+						] }
+						onChange={ ( valor ) =>
+							setAttributes( { ordenacao: valor } )
+						}
+					/>
+					<ToggleControl
+						label={ __( 'Mostrar Email', 'central-de-contatos' ) }
+						checked={ attributes.mostrar_email }
+						onChange={ ( valor ) =>
+							setAttributes( { mostrar_email: valor } )
+						}
+					/>
+				</PanelBody>
+			</InspectorControls>
+			<div { ...useBlockProps() }>
+				<p>teste</p>
+				{ /* o que aparece no bloco. Por enquanto, o <p> que estava antes */ }
+			</div>
+		</>
 	);
 }
