@@ -11,10 +11,24 @@ return array(
 		'icon' => 'id',
 		'description' => 'Liste todos os contatos da sua lista',
 		'example' => array(
-			
+			'attributes' => array(
+				'quantidade' => 2
+			)
 		),
 		'supports' => array(
-			'html' => false
+			'html' => false,
+			'align' => array(
+				'wide',
+				'full'
+			),
+			'color' => array(
+				'background' => true,
+				'text' => true
+			),
+			'spacing' => array(
+				'padding' => true,
+				'margin' => true
+			)
 		),
 		'textdomain' => 'central-de-contatos',
 		'editorScript' => 'file:./index.js',

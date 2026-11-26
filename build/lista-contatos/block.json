@@ -7,9 +7,25 @@
   "category": "widgets",
   "icon": "id",
   "description": "Liste todos os contatos da sua lista",
-  "example": {},
+  "example": {
+    "attributes": {
+      "quantidade": 2
+    }
+  },
   "supports": {
-    "html": false
+    "html": false,
+    "align": [
+      "wide",
+      "full"
+    ],
+    "color": {
+      "background": true,
+      "text": true
+    },
+    "spacing": {
+      "padding": true,
+      "margin": true
+    }
   },
   "textdomain": "central-de-contatos",
   "editorScript": "file:./index.js",
